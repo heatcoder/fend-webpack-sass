@@ -7,8 +7,17 @@ module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
     devtool: 'source-map',
+    devServer: {
+        // Update port to 3000 for classroom
+        port: 3000
+    },
     module: {
         rules: [
+
+            {
+            test: /\.scss$/,
+            use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+            },
             {
                 test: '/\.js$/',
                 exclude: /node_modules/,
@@ -17,7 +26,9 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            }
+            },
+            
+            
         ]
     },
     plugins: [
